@@ -1,0 +1,34 @@
+name: Build and deploy Jekyll site
+
+on:
+  push:
+    branches:
+      - main  # your default branch
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - uses: actions/checkout@v3
+
+      # 2. Set up Ruby
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      # 3. Install dependencies
+      - run: bundle install
+
+      # 4. Build Jekyll site
+      - run: bundle exec jekyll build --destination ./_site
+
+      # 5. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4 #most widely used GitHub Action for deploying static sites
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} #bot needs readwrite privilege to work, check box in settings
+          publish_dir: ./_site
+          publish_branch: gh-pages #target branch, nimi voi olla käytännössä mikä tahansa

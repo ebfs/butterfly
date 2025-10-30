@@ -1,0 +1,7 @@
+sample-task:
+  id: sample-task
+  title: "Sample Task — Big Clock"
+  lat: 51.5007
+  lng: -0.1246
+  radius_meters: 50
+  path: /tasks/sample-task/

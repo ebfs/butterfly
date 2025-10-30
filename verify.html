@@ -1,0 +1,17 @@
+---
+layout: default
+title: Verify location
+---
+
+<h1>Location verification</h1>
+<div id="status">Preparing verification…</div>
+<div id="details" style="display:none;">
+  <p id="distance"></p>
+  <button id="retry">Retry location</button>
+</div>
+
+<script id="tasks-json" type="application/json">
+{{ site.data.tasks | jsonify }}
+</script>
+
+<script src="/assets/js/verify.js"></script>

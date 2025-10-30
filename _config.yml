@@ -1,0 +1,34 @@
+#metdata
+baseurl: "/ppwk-2025"
+title: Pilvipalvelut web-kehityksessä
+description: Tervetuloa sivustolle!
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin: "dark"
+locale: fi
+
+#plugins
+plugins:
+  - jekyll-include-cache
+  - jekyll-remote-theme
+  - jekyll-feed
+  
+header:
+  nav: main #navigaatio @ _data/navigation.yml
+
+collections: #että _pages toimii:
+  pages:
+    output: true
+  ht:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: pages 
+    values:
+      layout: single #default layout for _pages
+      #previous_label: "Edellinen viikko" #legacy from testing
+      #next_label: "Seuraava viikko" #legacy from testing
+
+#footer
+footer: "fill later"
